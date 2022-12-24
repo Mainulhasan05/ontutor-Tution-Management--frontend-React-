@@ -16,6 +16,7 @@ const Navbar1 = () => {
                 <Nav.Item className='mx-3'><Link className='links' to="/search_tutors">SEARCH TUTORS</Link></Nav.Item>
                 <Nav.Item className='mx-3'><Link className='links' to="/request_tutor">REQUEST FOR A TUTOR</Link></Nav.Item>
                 <Nav.Item className='mx-3'><Link className='links' to="/verified_tutors">VERIFIED TUTORS</Link></Nav.Item>
+                <Nav.Item className='mx-3'><Link className='links' to="/contactus">CONTACT</Link></Nav.Item>
                 </Nav>
 <br />
                 <Nav className='ms-auto'>
