@@ -10,6 +10,7 @@ import RequestTutor from './Components/Request Tutor/RequestTutor';
 import VerifiedTutors from './Components/VerifiedTutors/VerifiedTutors';
 import Login from './Components/Authentication/Login/Login';
 import Register from './Components/Authentication/Register/Register';
+import Contactus from './Components/Contactus/Contactus';
 function App() {
   return (
     <div className="App">
@@ -21,6 +22,7 @@ function App() {
         <Route path="/verified_tutors" element={<VerifiedTutors/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
+        <Route path="/contactus" element={<Contactus/>}/>
       </Routes>
       <Footer/>
     </div>

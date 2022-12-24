@@ -26,11 +26,11 @@ const SearchForm = ({includeSalary}) => {
     <div>
       <div className="row me-auto ms-auto">
         <div className="col-md-5">
-          <Form.Select onChange={updateUpzila}>
+          <Form.Select onChange={updateUpzila} isSearchable={true}>
             <option value="">All Districts</option>
             {district_data.map((data,index)=>{
               return(
-              <option key={index} value={data.id+"-"+data.bn_name}>{data.bn_name}</option>
+              <option key={index} value={data.id+"-"+data.bn_name}>{data.name}</option>
               )              
             })}
           </Form.Select>
