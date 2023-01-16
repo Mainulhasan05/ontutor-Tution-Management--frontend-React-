@@ -46,8 +46,23 @@ const RequestTutor = () => {
     })
   }
 
-  const handleSubmit=()=>{
+  const handleSubmit=async()=>{
     console.log(postUser)
+    await fetch(`${URL}/createpost`, {
+      method: 'POST',
+      mode: 'cors',
+      headers:{
+        "ngrok-skip-browser-warning":false,
+        'Content-Type': 'application/json'
+      },
+      body:JSON.stringify({"imageURL":url,"email":user.email})
+  })
+  .then(response => response.json())
+  .then((data)=>{
+    setFile("")
+    setUser({...user,['imageURL']:url})
+    alert(data.msg)
+  })
   }
   const handleChange=(e)=>{
     alert(e.target.name)
