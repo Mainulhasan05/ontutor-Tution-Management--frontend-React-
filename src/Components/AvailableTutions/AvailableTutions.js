@@ -1,7 +1,7 @@
 import React from 'react'
 import UserCards from './UserCards'
 
-const VerifiedTutors = () => {
+const AvailableTutions = () => {
   return (
     <div className='container'>
         <h4>Verified Tutors: 06</h4>
@@ -22,4 +22,4 @@ const VerifiedTutors = () => {
   )
 }
 
-export default VerifiedTutors
+export default AvailableTutions

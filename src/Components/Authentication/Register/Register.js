@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container,Alert } from 'react-bootstrap'
 import RegisterFrom from './RegisterFrom'
 
 const Register = () => {
+  
   return (
     <Container className='my-3'>
       <Alert variant='info'><h4>Register</h4></Alert>

@@ -7,8 +7,8 @@ const Contactus = () => {
         <h3 className="alert alert-info">Contact Us</h3>
 
         <MessengerCustomerChat
-        pageId="101435796170702"
-        appId="1573007393142582"
+        pageId="100089083303397"
+        appId="1170977990476885"
         />
     </div>
   )

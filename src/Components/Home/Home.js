@@ -1,4 +1,5 @@
 import React from 'react'
+import LoadUser from './LoadUser/LoadUser'
 import UserCard from './LoadUser/UserCard'
 import SearchTutor from './SearchTutor/SearchTutor'
 import ShowImage from './ShowImage/ShowImage'
@@ -16,22 +17,7 @@ const Home = () => {
         </div>
 
         {/* users card will be displayed */}
-        <div className="container">
-          <div className="row">
-            <div className="col-md-3">
-            <UserCard/>
-            </div>
-
-            <div className="col-md-3">
-            <UserCard/>
-            </div>
-
-            <div className="col-md-3">
-            <UserCard/>
-            </div>
-          </div>
-        
-        </div>
+        <LoadUser/>
         
     </div>
   )
