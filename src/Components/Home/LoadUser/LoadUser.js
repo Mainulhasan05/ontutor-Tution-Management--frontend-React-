@@ -3,11 +3,11 @@ import axios from 'axios'
 import URL from '../../URL'
 import UserCard from './UserCard'
 import { Link } from 'react-router-dom'
-const LoadUser = () => {
+const LoadUser = ({district}) => {
   const [profile, setProfile] = useState([])
     useEffect(() => {
       loadUser()
-    }, [])
+    }, [district])
     const loadUser=async()=>{
       // await axios.get(`${URL}/get_users`)
       // .then(res=>{
@@ -16,6 +16,7 @@ const LoadUser = () => {
 
       // })
 
+
       fetch(`${URL}/get_users`, {
         mode: 'cors',
         headers:{
@@ -23,7 +24,23 @@ const LoadUser = () => {
         }
       })
       .then(res=>res.json())
-      .then(data=>setProfile(data))
+      .then(data=>{
+        if(district==""){
+          setProfile(data)
+        }
+        else{
+          const myArr=data.filter((data,index)=>{
+            if(data.district.includes(district)){
+              return true
+            }
+            else{
+              return false
+            }
+          })
+          setProfile(myArr)
+        }
+        
+      })
     }
   return (
     <div>

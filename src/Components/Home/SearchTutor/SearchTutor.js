@@ -4,7 +4,7 @@ import { IconContext } from "react-icons";
 import SearchForm from './SearchForm';
 
 
-const SearchTutor = () => {
+const SearchTutor = ({setDistrict}) => {
   return (
     <div className='card p-4'>
       <div className="alert alert-info">
@@ -12,7 +12,7 @@ const SearchTutor = () => {
         <IoIosSearch size={30}/> <h5 style={{display:"inline"}}>Search For Tutors</h5>
         </IconContext.Provider>
         </div>
-        <SearchForm/>
+        <SearchForm setDistrict={setDistrict}/>
     </div>
   )
 }

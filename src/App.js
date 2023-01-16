@@ -15,6 +15,8 @@ import Profile from './Components/Profile/Profile';
 import AvailableTutions from './Components/AvailableTutions/AvailableTutions';
 import { createContext, useEffect, useState } from 'react';
 import VisitProfile from './Components/InstructorProfile/VisitProfile';
+import AdminHome from './Components/Admin/AdminHome';
+import ForgetPassword from './Components/Authentication/ForgetPassword';
 
 export const UserContext = createContext();
 function App() {
@@ -38,7 +40,7 @@ function App() {
       <UserContext.Provider value={{user,setUser,updateUser}}>
       <Navbar/>
       <Routes>
-        <Route path="/" element={<Home/>}/>
+        <Route path="/" element={user ? user.email==='admin'? <AdminHome/>:<Home/>:<Home/>}/>
         <Route path="/search_tutors" element={<SearchTutor/>}/>
         <Route path="/request_tutor" element={<RequestTutor/>}/>
         <Route path="/available_tutions" element={<AvailableTutions/>}/>
@@ -47,6 +49,8 @@ function App() {
         <Route path="/contactus" element={<Contactus/>}/>
         <Route path="/profile1" element={<Profile/>}/>
         <Route path="/instructor/:id" element={<VisitProfile/>}/>
+        <Route path="/adminhome" element={<AdminHome/>}/>
+        <Route path="/forget_password" element={<ForgetPassword/>}/>
       </Routes>
       </UserContext.Provider>
       <Footer/>
@@ -55,3 +59,4 @@ function App() {
 }
 
 export default App;
+

@@ -10,6 +10,11 @@ const Contactus = () => {
         pageId="100089083303397"
         appId="1170977990476885"
         />
+
+<MessengerCustomerChat
+        pageId="100089083303397"
+        appId="689690072636934"
+        />
     </div>
   )
 }

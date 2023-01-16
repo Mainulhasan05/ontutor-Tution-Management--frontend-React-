@@ -8,18 +8,25 @@ import mediums from "../../Data/medium_data"
 import classes from "../../Data/class_data"
 import subject_data from '../../Data/subject_data'
 import salary_range from '../../Data/salary_range'
+import URL from '../URL'
+
 const RequestTutor = () => {
   const district_data=district[2].data
   const [upazila, setUpazila] = useState([])
+  const [msg, setMsg] = useState("")
   const [postUser, setPostUser] = useState({
     name:"",
+    email:"",
+    phone:"",
     district:"",
     area:"",
     medium:"",
     class:"",
     subject:"",
     gender:"Any",
-    salary_range:""
+    salary_range:"",
+    posted_on:new Date().toDateString(),
+    status:0
   })
   const updateUpzila=(e)=>{
     const id=e.target.value.split("-")[0]
@@ -35,19 +42,8 @@ const RequestTutor = () => {
     })
     setUpazila(upz)
   }
-  const updateClass=(e)=>{
-    const id=e.target.value.split("-")[0]
-    const name=e.target.value.split("-")[1]
-    setPostUser({...postUser,['medium']:name})
-    const newClass=classes.filter((data,index)=>{
-      if(id===data.medium_id){
-        return true
-      }
-    })
-  }
-
-  const handleSubmit=async()=>{
-    console.log(postUser)
+  
+  const handleSubmit=async()=>{  
     await fetch(`${URL}/createpost`, {
       method: 'POST',
       mode: 'cors',
@@ -55,26 +51,24 @@ const RequestTutor = () => {
         "ngrok-skip-browser-warning":false,
         'Content-Type': 'application/json'
       },
-      body:JSON.stringify({"imageURL":url,"email":user.email})
+      body:JSON.stringify(postUser)
   })
   .then(response => response.json())
   .then((data)=>{
-    setFile("")
-    setUser({...user,['imageURL']:url})
-    alert(data.msg)
+    setMsg("Your post has been submitted, after reviewing admin will approve it")
   })
   }
   const handleChange=(e)=>{
-    alert(e.target.name)
+    
     setPostUser({...postUser,[e.target.name]:e.target.value})
-    console.log(postUser)
   }
   return (
     <div>
     <div className='parent p-4'>
       <div className="child container text-center shadow p-4">
         <h3 className="text-primary">Looking for tutor?  <span className='text-success'>post your requirements</span> </h3>
-
+<br />
+<h4>{msg}</h4>
         <div className="row">
           <div className="col-md-7">
           <div>
@@ -82,6 +76,14 @@ const RequestTutor = () => {
         {/* <div className="col-md-7"> */}
           <div className="form-group my-3 w-100">
           <input type="text" name='name' onChange={handleChange} placeholder='Enter your full name' className="form-control" />
+          </div>
+          <br />
+          <div className="form-group my-3 w-100">
+          <input type="text" name='email' onChange={handleChange} placeholder='email' className="form-control" />
+          </div>
+          <br />
+          <div className="form-group my-3 w-100">
+          <input type="text" name='phone' onChange={handleChange} placeholder='Phone' className="form-control" />
           </div>
           <br />
           <div className="my-3">

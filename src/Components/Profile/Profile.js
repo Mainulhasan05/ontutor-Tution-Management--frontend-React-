@@ -419,8 +419,8 @@ displayValue="name" // Property name to display in the dropdown options
         <td>{data.institution}</td>
         <td>{data.result}</td>
         <td>{data.passing_year}</td>
-        <td><button>Edit</button> 
-        <button className='btn btn-danger mx-2' onClick={()=>deleteAcademic(data._id)}>Delete</button></td>
+        <td><button className='btn btn-info text-white'>Edit</button> 
+        <button className='btn btn-danger mx-2  text-white' onClick={()=>deleteAcademic(data._id)}>Delete</button></td>
       </tr>
           )
         })

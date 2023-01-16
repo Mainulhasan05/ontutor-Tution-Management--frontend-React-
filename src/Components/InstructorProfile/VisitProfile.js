@@ -96,6 +96,19 @@ const VisitProfile = () => {
                         <div className="col-md-4">{user.days_per_week} days/week</div>
                     </div>
 <hr />
+<div className="row">
+                        <div className="col-md-3">
+                            <h6>Preffered Area:</h6>
+                        </div>
+                        <div className="col-md-4">
+                        {user.area ? user.area.map((data,index)=>{
+                                return(
+                                    <span key={index}>{data.name}, </span>
+                                )
+                            }):<></>}
+                        </div>
+                    </div>
+<hr />
                     <div className="row">
                         <div className="col-md-3">
                             <h6>Preffered Tutoring Style:</h6>

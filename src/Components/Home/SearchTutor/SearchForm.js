@@ -5,7 +5,7 @@ import district from "../../../Data/districts.json"
 import upazilas from "../../../Data/upazilas.json"
 import mediums from "../../../Data/medium_data"
 import classes from "../../../Data/class_data"
-const SearchForm = ({includeSalary}) => {
+const SearchForm = ({includeSalary,setDistrict}) => {
   const [obj, setObj] = useState({
     district:"",
     area:"",
@@ -21,6 +21,7 @@ const SearchForm = ({includeSalary}) => {
   const updateUpzila=(e)=>{
     const id=e.target.value.split("-")[0]
     const name=e.target.value.split("-")[1]
+    setDistrict(name)
     const upz=upazilas[2].data.filter((data)=>{
       if(data.district_id===id){
         return true;
